@@ -1,12 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Name="Project1" Expanded="True" Active="0">
   <OpenFiles>
-    <File Path="C:\Users\ttien\OneDrive\Desktop\bai tap vxl\toichay.hex" />
-    <File Path=".\Project1\src\main.asm" />
+    <File Path=".\bai-1\out\out.mhx" />
+    <File Path=".\bai-1\out\out.bin" />
+    <File Path=".\bai-1\out\out.ihx" />
+    <File Path=".\bai-1\src\main.asm" />
   </OpenFiles>
   <Watch1 />
   <Watch2 />
   <Watch3 />
   <MonitorConfig />
-  <System Path=".\Project1\Project1.bps" />
+  <System Path=".\bai-1\Project1.bps" />
 </Project>
