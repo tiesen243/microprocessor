@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Name="project" Expanded="True" Active="0">
   <OpenFiles>
+    <File Path=".\project\out\out.hex" />
     <File Path=".\project\src\main.asm" />
   </OpenFiles>
   <Watch1 />

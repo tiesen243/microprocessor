@@ -23,7 +23,7 @@
     <bl51NLIB Value="True" />
     <DisableWarnings Value="False" />
   </Config>
-  <OutputFolder Expanded="False">
+  <OutputFolder Expanded="True">
     <File Name="out.bin" />
     <File Name="out.ihx" />
     <File Name="out.mhx" />
