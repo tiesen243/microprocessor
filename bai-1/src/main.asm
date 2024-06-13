@@ -1,12 +1,12 @@
-	;        Batronix Assembler File
-	;        -------------------------------------------------------------
-	;        Version:       1.0
-	;        Revision:
-	;        Author:        [TODO: Enter Your Name]
-	;        Creation Time:  13-Jun-24 08:04:50
-	;        Description:   [TODO: Enter a Description]
-	;        -------------------------------------------------------------
-	
+	; Batronix Assembler File
+	; -------------------------------------------------------------
+	; Version:       1.0
+	; Revision:
+	; Author:        [TODO: Enter Your Name]
+	; Creation Time:  13-Jun-24 08:04:50
+	; Description:   [TODO: Enter a Description]
+	; -------------------------------------------------------------
+
 	$INCLUDE "Common\89C52.mc"
 	;        -------------------------------------------------------------
 	;        Batronix Assembler Source Generator
@@ -17,31 +17,6 @@
 	; -------------------------------------------------------------
 
 	ORG 0h
-
-TD1:
-	MOV  A, #00H
-	SETB C
-
-X11:
-	RLC   A
-	MOV   P1, A
-	LCALL DELAY
-	JNC   X11; nh?y khi C b?ng 0 th?c hi?n l?nh k? khi C=1
-	SJMP  TD1
-
-delay:
-	MOV R7, #3
-
-del:
-	MOV R6, #250
-
-del1:
-	MOV  R5, #250
-	DJNZ R5, $
-	DJNZ R6, del1
-	DJNZ R7, del
-	RET
-End
 
 	; -------------------------------------------------------------
 	; Interrupts
@@ -66,7 +41,26 @@ Initialize:
 
 Main:
 
-	; [TODO: Put your program code here]
+td1:
+	MOV   p1, #0ffh
+	LCALL delay
+	MOV   p1, #00h
+	LCALL delay
+	SJMP  td1
+
+delay:
+	MOV R7, #3
+
+del:
+	MOV R6, #250
+
+del1:
+	MOV  R5, #250
+	DJNZ R5, $
+	DJNZ R6, del1
+	DJNZ R7, del
+	RET
+End
 
 	; -------------------------------------------------------------
 	; End of program

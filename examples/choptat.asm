@@ -1,12 +1,12 @@
-	;        Batronix Assembler File
-	;        -------------------------------------------------------------
-	;        Version:       1.0
-	;        Revision:
-	;        Author:        [TODO: Enter Your Name]
-	;        Creation Time:  13-Jun-24 07:45:39
-	;        Description:   [TODO: Enter a Description]
-	;        -------------------------------------------------------------
-	
+	; Batronix Assembler File
+	; -------------------------------------------------------------
+	; Version:       1.0
+	; Revision:
+	; Author:        tiesen243
+	; Creation Time: 13-Jun-24 07:45:39
+	; Description:   Blink all LEDs on the 89C51 microcontroller form pin P1.0 to P1.7
+	; -------------------------------------------------------------
+
 	$INCLUDE "Common\89C52.mc"
 	;        -------------------------------------------------------------
 	;        Batronix Assembler Source Generator
@@ -37,7 +37,8 @@ del1:
 	DJNZ R6, del1
 	DJNZ R7, del
 	RET
-	End
+End
+
 	; -------------------------------------------------------------
 	; Interrupts
 	; -------------------------------------------------------------

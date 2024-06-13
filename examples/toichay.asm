@@ -1,12 +1,12 @@
-	;        Batronix Assembler File
-	;        -------------------------------------------------------------
-	;        Version:       1.0
-	;        Revision:
-	;        Author:        [TODO: Enter Your Name]
-	;        Creation Time:  13-Jun-24 08:04:50
-	;        Description:   [TODO: Enter a Description]
-	;        -------------------------------------------------------------
-	
+	; Batronix Assembler File
+	; -------------------------------------------------------------
+	; Version:       1.0
+	; Revision:
+	; Author:        tiesen243
+	; Creation Time: 13-Jun-24 08:04:50
+	; Description:   Blink LED quece P1.0 -> P1.7
+	; -------------------------------------------------------------
+
 	$INCLUDE "Common\89C52.mc"
 	;        -------------------------------------------------------------
 	;        Batronix Assembler Source Generator

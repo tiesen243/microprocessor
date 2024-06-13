@@ -1,11 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Name="Project1" Expanded="True" Active="0">
-  <OpenFiles>
-    <File Path=".\bai-1\out\out.mhx" />
-    <File Path=".\bai-1\out\out.bin" />
-    <File Path=".\bai-1\out\out.ihx" />
-    <File Path=".\bai-1\src\main.asm" />
-  </OpenFiles>
+  <OpenFiles />
   <Watch1 />
   <Watch2 />
   <Watch3 />
