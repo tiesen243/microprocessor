@@ -48,4 +48,121 @@ End
 n = 12M/12 * 0.3 = 300000 = 30 (R7) * 10000(T1)
  => 16 bit => 0001 0000 => tmod = 10H
 
+```assembly
+Main:
+	TG   EQU 20H
+	KQ   EQU 21H
+	CK   EQU 22H
+	SLDL EQU 23H
+
+TD1:
+	MOV KQ, #00H
+	MOV CK, #8
+
+X1:
+	MOV  SLDL, CK
+	MOV  TG, #00H
+	SETB C
+
+X0:
+	MOV   A, TG
+	RLC   A
+	MOV   TG, A
+	ORL   A, KQ
+	MOV   P1, A
+	LCALL DELAY
+	DJNZ  SLDL, X0
+	MOV   KQ, P1
+	DJNZ  CK, X1
+	SJMP  TD1
+
+	; ---------- Delay function ----------
+
+DELAY:
+	MOV R7, #30
+
+DEL:
+	MOV  th1, #0d8h
+	MOV  tl1, #0f0h
+	SETB tr1
+	JNB  tf1, $
+	CLR  tr1
+	CLR  tf1
+	DJNZ R7, Del
+	RET
+
+End
+```
+
 3. Viết chương trình sáng dồn và tắt dồn led P1,biết thạch anh 12MHZ
+
+```assembly
+Main:
+	TG   EQU 20H
+	KQ   EQU 21H
+	CK   EQU 22H
+	SLDL EQU 23H
+
+	; ---------- Sang don ----------
+
+SD1:
+	MOV KQ, #0FFH
+	MOV CK, #8
+
+LS1:
+	MOV SLDL, CK
+	MOV TG, #0FFH
+	CLR C
+
+LS2:
+	MOV   A, TG
+	RLC   A
+	MOV   TG, A
+	ANL   A, KQ
+	MOV   P1, A
+	LCALL DELAY
+	DJNZ  SLDL, LS2
+	MOV   KQ, P1
+	DJNZ  CK, LS1
+
+	;---------- Tat don ----------
+
+TD1:
+	MOV KQ, #00H
+	MOV CK, #8
+
+LT1:
+	MOV  SLDL, CK
+	MOV  TG, #00H
+	SETB C
+
+LT2:
+	MOV   A, TG
+	RRC   A
+	MOV   TG, A
+	ORL   A, KQ
+	MOV   P1, A
+	LCALL DELAY
+	DJNZ  SLDL, LT2
+	MOV   KQ, P1
+	DJNZ  CK, LT1
+
+	SJMP SD1
+
+	; ---------- Delay function ----------
+
+DELAY:
+	MOV R7, #100
+
+DEL:
+	MOV  th1, #0d8h
+	MOV  tl1, #0f0h
+	SETB tr1
+	JNB  tf1, $
+	CLR  tr1
+	CLR  tf1
+	DJNZ R7, Del
+	RET
+
+End
+```
