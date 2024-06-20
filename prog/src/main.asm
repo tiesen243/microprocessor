@@ -40,39 +40,57 @@ Initialize:
 	; Main program
 	; -------------------------------------------------------------
 
-Main:
-	;   ---------- Define port ----------
-	MOV tmod, #01h
+	; Expected: P1.0 - P1.7:
+	; 0000 0000 -> 1000 0000 -> 0100 0000 -> 0010 0000 -> 0001 0000 -> 0000 1000 -> 0000 0100 -> 0000 0010 -> 0000 0001
+	; -> 1000 0001 -> 0100 0001 -> 0010 0001 -> 0001 0001 -> 0000 1001 -> 0000 0101 -> 0000 0011
+	; -> 1000 0011 -> 0100 0011 -> 0010 0011 -> 0001 0011 -> 0000 1011 -> 0000 0111
+	; -> 1000 0111 -> 0100 0111 -> 0010 0111 -> 0001 0111 -> 0000 1111
+	; -> 1000 1111 -> 0100 1111 -> 0010 1111 -> 0001 1111
+	; -> 1001 1111 -> 0101 1111 -> 0011 1111
+	; -> 1011 1111 -> 0111 1111
+	; -> 1111 1111
 
-TD1:
-	MOV A, #0ffh
-	CLR C
+Main:
+	; ---------- Define port ----------
+
+	STORE EQU 20H
+	TEMP  EQU 21H
+
+	MOV tmod, #10h
+	MOV STORE, #00h
+
+TD:
+	MOV  P1, STORE
+	MOV  A, #00h
+	SETB C
 
 L1:
-	RLC   A
-	MOV   P1, A
-	LCALL DELAY
-	JB    P1.7, L1
+	RRC A
+	MOV TEMP, A
+	;   A = 1000 0000, STORE = 0000 0001 -> TEMP = 1000 0001
+	;   Set temp
 
-L2:
-	RRC   A
-	MOV   P1, A
+	MOV   P1, TEMP
 	LCALL DELAY
-	JB    P1.0, L2
-	SJMP  TD1
+	JNB   C, L1
+
+	;   store the value of p1 in the store variable
+	MOV STORE, P1
+
+	SJMP TD
 
 	; ---------- Delay function ----------
 
 DELAY:
-	MOV R7, #50
+	MOV R7, #30
 
 DEL:
-	MOV  th0, #0d8h
-	MOV  tl0, #0f0h
-	SETB tr0
-	JNB  tf0, $
-	CLR  tr0
-	CLR  tf0
+	MOV  th1, #0d8h
+	MOV  tl1, #0f0h
+	SETB tr1
+	JNB  tf1, $
+	CLR  tr1
+	CLR  tf1
 	DJNZ R7, Del
 	RET
 

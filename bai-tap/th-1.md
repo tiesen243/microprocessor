@@ -1,12 +1,12 @@
 1. viết chương trình 1 điểm sáng chạy p1.0 đến p1.7 đến p1.0, với thời gian delay 0.5s sử dụng T0. Biết thạch anh 12Mhz
 
-n = 12M/12 * 0.5 = 500000 = 50 (R7) * 10000(T0)
+n = 12M/12 * 0.5 = 500000 = 50 (R7) * 10000 (T0)
  => 16 bit => 0000 0001 => tmod = 01H
 
 ```assembly
 Main:
-	;   ---------- Define port ----------
-	MOV tmod, #01h
+
+    MOV tmod, #01h
 
 TD1:
 	MOV A, #0ffh
@@ -44,5 +44,8 @@ End
 ```
 
 2. Viết chương trình tắt dồn led p1 với thời gian delay 0.3s sử dụng T1 biết thạch anh 12Mhz
+
+n = 12M/12 * 0.3 = 300000 = 30 (R7) * 10000(T1)
+ => 16 bit => 0001 0000 => tmod = 10H
 
 3. Viết chương trình sáng dồn và tắt dồn led P1,biết thạch anh 12MHZ
