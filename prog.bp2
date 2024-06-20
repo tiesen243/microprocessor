@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Name="prog" Expanded="True" Active="0">
+  <OpenFiles>
+    <File Path=".\prog\out\out.ihx" />
+  </OpenFiles>
+  <Watch1 />
+  <Watch2 />
+  <Watch3 />
+  <MonitorConfig />
+  <System Path=".\prog\prog.bps" />
+</Project>
