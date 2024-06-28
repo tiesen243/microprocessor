@@ -17,3 +17,6 @@ dp g f e d c b a
 2D/10 = 4 du 5
 D7/10 = 15H du 5
 15/10 = 2 du 5
+
+De 
+2 3 5 8

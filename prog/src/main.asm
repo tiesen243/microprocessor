@@ -75,7 +75,7 @@ DISPLAY:
 	MOV   P0, 31H
 	SETB  P2.0
 	CLR   P2.0
-	MOV   P0, #0BBH
+	MOV   P0, #0FFH
 	SETB  P2.1
 	CLR   P2.1
 	LCALL DELAY
@@ -86,7 +86,7 @@ DISPLAY:
 	MOV   P0, 30H
 	SETB  P2.0
 	CLR   P2.0
-	MOV   P0, #077H
+	MOV   P0, #77H
 	SETB  P2.1
 	CLR   P2.1
 	LCALL DELAY
@@ -113,7 +113,7 @@ DELAY:
 	RET
 
 TABLE:
-	DB 3FH, 06H, 5BH, 4FH, 66H, 6DH, 7DH, 07H, 7FH, 6FH
+	DB 5BH, 4FH, 6DH, 7FH
 	;  0     1    2    3    4    5    6    7    8    9
 
 	End
