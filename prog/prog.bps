@@ -25,9 +25,8 @@
   </Config>
   <OutputFolder Expanded="True">
     <File Name="out.bin" />
-    <File Name="out.ihx" />
-    <File Name="out.mhx" />
     <File Name="out.hex" />
+    <File Name="out.mhx" />
   </OutputFolder>
   <DocumentFolder Expanded="False" />
   <SourceFolder Expanded="True">
